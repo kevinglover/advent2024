@@ -1,3 +1,4 @@
+import os
 import re
 
 def process_file(file_name):
@@ -16,11 +17,10 @@ def process_file(file_name):
     print(f"Sum of all reports: {sum(item for report in reports for item in report)}")
 
   except FileNotFoundError:
-      print(f"Error: File '{file_name}' not found.")
-  except ValueError:
-      print("Error: File contains non-integer values.")
+    print(f"Error: File '{file_name}' not found.")
 
 # Specify the file name and process it
 if __name__ == "__main__":
-  FILE_NAME = "advent2024/day-3/data.txt"
-  process_file(FILE_NAME)
+  script_dir = os.path.dirname(os.path.realpath(__file__))
+  file_path = os.path.join(script_dir, "../data.txt")
+  process_file(file_path)

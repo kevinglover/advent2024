@@ -1,3 +1,5 @@
+import os
+
 def are_close(a, b, limit=3):
   if a == b:
     return False
@@ -41,5 +43,6 @@ def process_file(file_name):
       print("Error: File contains non-integer values.")
 
 if __name__ == "__main__":
-  FILE_NAME = "advent2024/day-2/data.txt"
-  process_file(FILE_NAME)
+  script_dir = os.path.dirname(os.path.realpath(__file__))
+  file_path = os.path.join(script_dir, "../data.txt")
+  process_file(file_path)
